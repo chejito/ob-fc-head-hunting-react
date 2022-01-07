@@ -8,7 +8,8 @@ const LoginButton = (props) => {
       backgroundColor: 'var(--primary-color)',
       color: 'var(--secondary-bg-color)',
       fontSize: '15px',
-      fontWeight: 700
+      fontWeight: 700,
+      borderRadius: '8px'
     }}>
       {props.value}
     </button>
