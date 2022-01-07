@@ -23,7 +23,6 @@ body {
   font-feature-settings: "pnum" on, "lnum" on;
 }
 
-::placeholder {
-  color: var(--secondary-font-color);
+a {
+  text-decoration: none;
 }
-

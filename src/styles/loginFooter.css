@@ -1,0 +1,23 @@
+.login-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 60px;
+  width: 450px;
+  margin: 0;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--secondary-font-color);
+}
+
+.login-footer a {
+  color: inherit;
+}
+
+@media (max-width: 650px) {
+  footer {
+    justify-content: flex-start;
+    max-width: 300px;
+  }
+}
