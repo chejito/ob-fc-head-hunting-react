@@ -9,7 +9,8 @@ const LoginButton = (props) => {
       color: 'var(--secondary-bg-color)',
       fontSize: '15px',
       fontWeight: 700,
-      borderRadius: '8px'
+      borderRadius: '8px',
+      cursor: 'pointer'
     }}>
       {props.value}
     </button>
