@@ -1,0 +1,33 @@
+.username-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 167px;
+  height: 40px;
+  background: var(--secondary-bg-color);
+  border-radius: 91px;
+}
+
+.username-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+  background: var(--primary-font-color);
+  border-radius: 59px;
+  color: var(--username-color);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.username-user {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.username-button {
+  width: 40px;
+  color: var(--secondary-font-color);
+}
