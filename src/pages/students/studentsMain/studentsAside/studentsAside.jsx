@@ -1,19 +1,17 @@
 import React from 'react';
 import './studentsAside.css'
+import StudentsAsideForm from './studentsAsideForm/studentsAsideForm';
 
 const StudentsAside = () => {
   return (
     <aside  className='students-aside'>
       <header className='students-aside-header'>
         <p>Filtros de búsqueda</p>
-        <span class="material-icons-outlined delete-icon">
+        <span className='material-icons-outlined delete-icon'>
           delete
         </span>
-      </header>
-      
-      <form>
-
-      </form>
+      </header>      
+      <StudentsAsideForm></StudentsAsideForm>
     </aside>
   );
 }
