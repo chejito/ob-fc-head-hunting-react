@@ -14,13 +14,16 @@
   box-sizing: border-box;
 }
 
-html, body, h1, p {
+html, body,
+h1, h2, 
+p, div {
   margin: 0;  
 }
 
 body {
   font-family: "Raleway", sans-serif;
   font-feature-settings: "pnum" on, "lnum" on;
+  background-color: var(--main-bg-color);
 }
 
 a {

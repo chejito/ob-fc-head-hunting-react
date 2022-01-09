@@ -1,0 +1,17 @@
+.add-student-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+  width: 168px;
+  font-size: 15px;
+  font-weight: 700;
+  background-color: var(--secondary-bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+}
+
+.add-student-button span {
+  font-size: 18px;
+}

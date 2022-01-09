@@ -1,0 +1,13 @@
+.students-table-body tr {
+  height: 56px;
+}
+
+.students-table-body td {
+  font-size: 15px;
+  font-weight: 500;
+  border-top: 1px solid var(--border-color);
+}
+
+.students-table-body .col1 {
+  font-weight: 600;
+}

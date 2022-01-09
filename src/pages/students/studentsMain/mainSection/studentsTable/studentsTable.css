@@ -1,0 +1,31 @@
+.students-table {
+  width: 100%;
+  margin-top: 16px;
+  background-color: var(--secondary-bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  table-layout: fixed;
+}
+
+.students-table-head th,
+.students-table-body td {
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: start;
+}
+
+.col1 {
+  width: 304px;
+  padding-right: 20px;
+  padding-left: 24px;
+}
+
+.col2, .col3, .col4, .col5 {
+  width: 178px;
+  padding-right: 20px;
+}
+
+.col6 {
+  width: 334px;
+  padding-right: 104px;
+}
