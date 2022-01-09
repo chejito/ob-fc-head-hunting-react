@@ -1,7 +1,7 @@
 import React from 'react';
-import StudentsHeader from '../components/containers/studentsHeader';
-import StudentsMain from '../components/containers/studentsMain';
-import '../styles/students.css'
+import StudentsHeader from './studentsHeader/studentsHeader';
+import StudentsMain from './studentsMain/studentsMain';
+import './students.css'
 
 const Students = () => {
   return (

@@ -1,9 +1,9 @@
 import React from 'react';
-import CompanyName from '../companyName';
-import InputText from '../inputText';
-import LoginButton from '../loginButton';
-import RememberPassword from '../rememberPassword';
-import '../../styles/loginForm.css'
+import CompanyName from '../../../components/companyName/companyName';
+import InputText from '../../../components/inputText/inputText';
+import LoginButton from '../../../components/loginButton/loginButton';
+import RememberPassword from '../../../components/rememberPassword/rememberPassword';
+import './loginForm.css'
 
 const LoginFormContainer = () => {
   return (

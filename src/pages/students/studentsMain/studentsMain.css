@@ -1,0 +1,22 @@
+.students-main {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  border: 1px solid purple;
+
+}
+
+.students-main-container {
+  height: 830px;
+  width: 1796px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  padding-top: 40px;
+  border: 1px solid blue;
+
+}

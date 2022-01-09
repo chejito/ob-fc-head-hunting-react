@@ -1,9 +1,9 @@
 import React from 'react';
-import '../styles/loginButton.css'
+import './loginButton.css'
 
 const LoginButton = (props) => {
   return (
-    <button >
+    <button className='input-text-button'>
       {props.value}
     </button>
   );

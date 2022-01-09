@@ -1,4 +1,4 @@
-button {
+.input-text-button {
   height: 40px;
   border: none;
   background-color: var(--primary-color);

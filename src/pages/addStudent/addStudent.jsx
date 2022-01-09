@@ -1,4 +1,5 @@
 import React from 'react';
+import './addStudent.css'
 
 const AddStudent = () => {
   return (

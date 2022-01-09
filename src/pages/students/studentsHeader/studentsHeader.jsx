@@ -1,7 +1,7 @@
 import React from 'react';
-import '../../styles/studentsHeader.css'
-import CompanyName from '../companyName';
-import UserDisplay from '../userDisplay';
+import './studentsHeader.css'
+import CompanyName from '../../../components/companyName/companyName';
+import UserDisplay from '../../../components/userDisplay/userDisplay';
 
 const StudentsHeader = () => {
   return (

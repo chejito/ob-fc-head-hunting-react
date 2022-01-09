@@ -1,0 +1,15 @@
+.students-main-section {
+  height: 750px;
+  width: 1346px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; 
+  overflow-y: scroll;
+  border: 1px solid green;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.students-main-section::-webkit-scrollbar {
+  display: none;
+}

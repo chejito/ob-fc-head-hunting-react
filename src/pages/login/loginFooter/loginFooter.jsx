@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/loginFooter.css'
+import './loginFooter.css'
 
 const LoginFooterContainer = () => {
   return (

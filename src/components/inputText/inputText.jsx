@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/inputText.css'
+import './inputText.css'
 
 const InputText = (props) => {
 
@@ -9,7 +9,9 @@ const InputText = (props) => {
   
   return (
     <div className='input-field'>
-      <label htmlFor={inputName} className='input-text-label'>{props.name}</label>
+      <label htmlFor={inputName} className='input-text-label'>
+        {props.name}
+      </label>
       <input name={inputName} className='input-text' 
       placeholder={props.placeholder}></input>
     </div>

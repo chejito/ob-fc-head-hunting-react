@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/userDisplay.css'
+import './userDisplay.css'
 
 const UserDisplay = (props) => {
 
@@ -10,7 +10,7 @@ const UserDisplay = (props) => {
     <div className='username-container'>
       <div className='username-image'>{photo}</div>
       <div className='username-user'>{username}</div>
-      <span class="material-icons username-button">
+      <span className='material-icons username-button'>
         expand_more
       </span>
     </div>

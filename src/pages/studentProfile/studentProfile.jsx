@@ -1,4 +1,5 @@
 import React from 'react';
+import './studentProfile.css'
 
 const StudentProfile = () => {
   return (
