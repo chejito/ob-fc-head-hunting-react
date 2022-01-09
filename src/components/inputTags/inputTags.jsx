@@ -1,8 +1,6 @@
 import React from 'react';
 import './inputTags.css'
-import InputField from '../inputField/inputField';
 import { tags } from '../../data/tags'
-import InputSelect from '../inputSelect/inputSelect';
 import InputTextSelect from '../inputTextSelect/inputTextSelect';
 
 const InputTags = () => {

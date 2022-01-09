@@ -1,0 +1,15 @@
+.back-button {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  height: 20px;
+  width: 76px;
+  font-size: 15px;
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+}
+
+

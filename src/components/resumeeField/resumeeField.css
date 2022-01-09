@@ -1,0 +1,51 @@
+.resumee-container {
+  width: 100%;
+  height: 68px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.resumee-buttons {
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.resumee-buttons .material-icons-outlined {
+  vertical-align: middle;
+  font-size: 18px;
+  padding-right: 12px;
+}
+
+.upload-resumee,
+.delete-resumee {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;  
+}
+
+.upload-resumee {
+  height: 100%;
+  width: 163px;
+  background: var(--secondary-font-color);
+  margin-right: 10px;
+  color: var(--secondary-bg-color);
+  border: none;
+}
+
+.delete-resumee {
+  height: 100%;
+  width: 101px;
+  border: 1px solid var(--border-color);
+  color: var(--primary-font-color);
+}

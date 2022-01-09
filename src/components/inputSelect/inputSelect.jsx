@@ -12,11 +12,13 @@ const InputSelect = (props) => {
       <label htmlFor={inputName} className='input-label'>
         {props.name}
       </label>
-      <select name={inputName} className='input-field'>
+      <select name={inputName} className='input-field' defaultValue={props.value ? {
+        value: props.value.toLowerCase(),
+        label: props.value
+         } : null }>
         {options.map((option, index) => (
           <option value={option.toLowerCase()} key={index}>{option}</option>
-        ))}
-        
+        ))}        
       </select>
     </div>
   );

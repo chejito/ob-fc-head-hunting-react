@@ -1,0 +1,9 @@
+.profile-main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  height: 830px;
+  width: 1796px;
+  margin: 0 62px;
+}

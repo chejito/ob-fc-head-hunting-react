@@ -1,9 +1,9 @@
 import React from 'react';
-import './mainSection.css'
+import './studentsMainSection.css'
 import StudentsTable from './studentsTable/studentsTable';
 import TableBar from './tableBar/tableBar';
 
-const MainSection = () => {
+const StudentsMainSection = () => {
   return (
     <section className='students-main-section'>
       <TableBar></TableBar>
@@ -12,4 +12,4 @@ const MainSection = () => {
   );
 }
 
-export default MainSection;
+export default StudentsMainSection;

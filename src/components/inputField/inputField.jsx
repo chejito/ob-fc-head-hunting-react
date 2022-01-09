@@ -14,7 +14,8 @@ const InputField = (props) => {
         {props.name}
       </label>
       <input name={inputName} type={props.type} className='input-field' 
-      placeholder={props.placeholder}></input>
+      placeholder={props.placeholder} defaultValue={
+        props.value ? props.value : '' }/>
     </div>
   );
 }

@@ -1,0 +1,9 @@
+.pdf-viewer {
+  width: 1176px;
+  height: 750px;
+  background: var(--secondary-bg-color);
+  border-radius: 20px;
+  box-shadow: inset 0px 0px 20px var(--shadow-frame-color);
+  border-radius: 20px;
+  margin-top: 40px;
+}
