@@ -1,0 +1,21 @@
+.tag-pills {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-content: center;
+}
+
+.tag-pill {
+  height: 22px;
+  display: inline-flex;
+  background-color: var(--primary-color);
+  color: var(--secondary-bg-color);
+  margin-right: 6px;
+  padding: 4px 8px;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+}

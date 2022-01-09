@@ -1,12 +1,12 @@
 import React from 'react';
 import './studentsTableBody.css'
-import { students } from '../../../../../../data/students';
+import TagPills from './tagPills/tagPills';
 
 
-const Studentstablebody = () => {
+const StudentsTableBody = (props) => {  
   return (
     <tbody className='students-table-body'>
-        {students.map((student, index) =>(
+        {props.students.map((student, index) =>(          
           <tr key={ index }>
             <td className='col1' >
               { student.name }
@@ -24,7 +24,7 @@ const Studentstablebody = () => {
               { student.email }
             </td>
             <td className='col6'>
-              { student.tags }
+              <TagPills tags={student.tags}></TagPills>
             </td>
           </tr>
         ))}
@@ -32,4 +32,4 @@ const Studentstablebody = () => {
   );
 }
 
-export default Studentstablebody;
+export default StudentsTableBody;
