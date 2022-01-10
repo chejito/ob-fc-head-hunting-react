@@ -13,8 +13,8 @@ function App() {
     <div className="App">
       {/* <Login></Login> */}
       {/* <Students></Students> */}
-      <StudentProfile></StudentProfile>
-      {/* <AddStudent></AddStudent> */}
+      {/* <StudentProfile></StudentProfile> */}
+      <AddStudent></AddStudent>
     </div>
   );
 }

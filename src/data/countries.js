@@ -1,5 +1,11 @@
 exports.countries = [
   {
+    name: 'Elige un país',
+    cities: [
+      'Elige una ciudad'
+    ]  
+  },
+  {
     name: 'España',
     cities: [
       'Madrid',
@@ -13,5 +19,5 @@ exports.countries = [
       'Las Palmas de G.C.',
       'Bilbao'
     ]  
- }
+  }
 ]

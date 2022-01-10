@@ -1,0 +1,27 @@
+.add-student-main {
+  width: 1138px;
+  height: 528px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: var(--secondary-bg-color);
+  box-shadow: 0px 4px 16px rgba(117, 114, 150, 0.15);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+}
+
+.add-student-form-header {
+  width: 1090px;
+  height: 22px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 19px;
+  font-weight: 600;
+  margin: 24px 24px 30px 24px;
+}
+
+.close-icon {
+  font-size: 18px;
+  color: var(--darker-grey-color)
+}

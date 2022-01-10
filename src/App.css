@@ -8,6 +8,8 @@
   --username-color: #515561;
   --location-icon-color: #8c909c;
   --shadow-frame-color: #00000040;
+  --blend-color: #00000055;
+  --darker-grey-color: #8a889a;
 }
 
 * {

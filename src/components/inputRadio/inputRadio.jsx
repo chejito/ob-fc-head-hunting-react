@@ -10,10 +10,10 @@ const InputRadio = (props) => {
     <div className='input'>
       <p className='input-label'>{props.name}</p>
       {options.map((option, index) => (
-        <div className='radio-option'>
+        <div className='radio-option' key={index}>
           <input name={props.label} type='radio' className='radio-field' 
           value={option}/>
-          <label htmlFor={props.label} className='option-label' key={index}>          
+          <label htmlFor={props.label} className='option-label'>          
               {option}
           </label>
         </div>  

@@ -15,8 +15,6 @@ const ProfileMainSection = () => {
   const modalities = ['Presencial', 'En remoto']
   const move = ['Sí', 'No']
 
-  console.log(student)
-
   countries.forEach(country => countryList.push(country.name))
   countries.forEach(country => cityList.push(country.cities))
 

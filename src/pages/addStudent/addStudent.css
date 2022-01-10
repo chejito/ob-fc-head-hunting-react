@@ -1,0 +1,8 @@
+.add-student-container {
+  width: 1920px;
+  height: 900px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--blend-color);
+}

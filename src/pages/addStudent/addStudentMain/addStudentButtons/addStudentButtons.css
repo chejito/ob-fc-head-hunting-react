@@ -1,0 +1,7 @@
+.add-student-buttons {
+  height: 64px;
+  width: 100%;
+  background-color: var(--border-color);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
