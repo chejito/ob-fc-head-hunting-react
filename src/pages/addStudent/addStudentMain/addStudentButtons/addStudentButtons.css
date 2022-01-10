@@ -1,7 +1,17 @@
 .add-student-buttons {
   height: 64px;
   width: 100%;
-  background-color: var(--border-color);
+  background-color: var(--main-bg-color);
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
+  margin-top: 24px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 24px;
+}
+
+.rounded-button {
+  margin-left: 12px;
 }

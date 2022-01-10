@@ -1,0 +1,26 @@
+.rounded-button {
+  height: 40px;
+  width: fit-content;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  padding: 0 20px;
+  background-color: var(--secondary-font-color);
+  color: var(--secondary-bg-color);
+  border: none;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.upload-icon {
+  vertical-align: middle;
+  font-size: 18px;
+  padding-right: 12px;
+}
+
+.rounded-button[disabled] {
+  background-color: var(--border-color);
+}

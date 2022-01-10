@@ -3,6 +3,8 @@ import InputField from '../../../../components/inputField/inputField';
 import './addStudentForm.css'
 import { countries } from '../../../../data/countries';
 import InputSelect from '../../../../components/inputSelect/inputSelect';
+import InputTags from '../../../../components/inputTags/inputTags'
+import UploadFile from '../../../../components/uploadFile/uploadFile';
 
 
 const AddStudentForm = () => {
@@ -37,7 +39,13 @@ const AddStudentForm = () => {
       </div>
 
       <div className='add-student-form-inputs inputs-2'>
-        
+        <UploadFile name='Foto de Perfil' title='Subir imagen' 
+        supported='.png, .jpg, y .jpeg' fileSize='2 MB' upload />
+
+        <UploadFile name='Documento CV' title='Subir documento PDF' 
+        supported='.pdf' fileSize='20 MB' upload />
+
+        <InputTags tags={[]}/>
       </div>
       
     </div>

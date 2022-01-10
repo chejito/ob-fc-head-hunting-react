@@ -20,7 +20,7 @@ const StudentsAsideForm = () => {
 
   return (
     <form className='aside-form'>
-      <InputTags></InputTags>
+      <InputTags tags={['html&css', 'react', 'angular']}></InputTags>
       <InputSelect name='País' options={countryList}/>
       <InputSelect name='Ciudad' options={cityList[0]}/>
       <InputRadio name='Presencial / a distancia' label='modalidad' options={modalities}/>

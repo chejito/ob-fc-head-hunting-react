@@ -59,7 +59,7 @@ const ProfileMainSection = () => {
         </div>
         <ResumeeField/>
         
-        <InputTags/>
+        <InputTags tags={['html&css', 'react', 'angular']}/>
       </div>
       
       

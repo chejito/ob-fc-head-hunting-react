@@ -11,10 +11,10 @@ import AddStudent from './pages/addStudent/addStudent';
 function App() {
   return (
     <div className="App">
-      {/* <Login></Login> */}
-      {/* <Students></Students> */}
-      {/* <StudentProfile></StudentProfile> */}
+      <Login></Login>
+      <Students></Students>
       <AddStudent></AddStudent>
+      <StudentProfile></StudentProfile>    
     </div>
   );
 }
