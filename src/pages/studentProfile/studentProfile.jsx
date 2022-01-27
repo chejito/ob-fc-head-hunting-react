@@ -1,7 +1,7 @@
 import React from 'react';
 import './studentProfile.css'
-import StudentProfileHeader from './studentProfileHeader/studentProfileHeader';
-import StudentProfileMain from './studentProfileMain/studentProfileMain';
+import StudentProfileHeader from '../../components/container/studentProfileHeader/studentProfileHeader';
+import StudentProfileMain from '../../components/container/studentProfileMain/studentProfileMain';
 
 const StudentProfile = () => {
   return (

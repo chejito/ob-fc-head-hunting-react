@@ -1,6 +1,6 @@
 import React from 'react';
-import LoginFooterContainer from './loginFooter/loginFooter'
-import LoginFormContainer from './loginForm/loginForm';
+import LoginFooterContainer from '../../components/pure/loginFooter/loginFooter'
+import LoginFormContainer from '../../components/container/loginForm/loginForm';
 import './login.css'
 
 const Login = () => {

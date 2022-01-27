@@ -1,6 +1,6 @@
 import React from 'react';
-import StudentsHeader from './studentsHeader/studentsHeader';
-import StudentsMain from './studentsMain/studentsMain';
+import StudentsHeader from '../../components/container/studentsHeader/studentsHeader';
+import StudentsMain from '../../components/container/studentsMain/studentsMain';
 import './students.css'
 
 const Students = () => {

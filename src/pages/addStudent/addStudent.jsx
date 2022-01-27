@@ -1,6 +1,6 @@
 import React from 'react';
 import './addStudent.css'
-import AddStudentMain from './addStudentMain/addStudentMain';
+import AddStudentMain from '../../components/container/addStudentMain/addStudentMain';
 
 const AddStudent = () => {
   return (
