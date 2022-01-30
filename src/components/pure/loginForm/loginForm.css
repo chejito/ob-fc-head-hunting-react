@@ -24,6 +24,17 @@
   height: 166px;
 }
 
+.input-text-button {
+  height: 40px;
+  border: none;
+  background-color: var(--primary-color);
+  color: var(--secondary-bg-color);
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
 @media (max-width: 650px) {
   .login-form-container {
     height: 450px;

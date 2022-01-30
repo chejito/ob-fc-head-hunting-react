@@ -1,23 +1,25 @@
 import React from 'react';
 import './inputField.css'
 
-const InputField = (props) => {
+const InputField = React.forwardRef(({ name, type, placeholder, value }, ref) => {
 
-
-  const inputName = props.name.toLowerCase() === 'contraseña' ?
+  const inputName = name.toLowerCase() === 'contraseña' ?
   'contrasenia' :
-  props.name.toLowerCase()
+  name.toLowerCase()
   
   return (
     <div className='input'>
       <label htmlFor={inputName} className='input-label'>
-        {props.name}
+        {name}
       </label>
-      <input name={inputName} type={props.type} className='input-field' 
-      placeholder={props.placeholder} defaultValue={
-        props.value ? props.value : '' }/>
+      <input name={inputName} 
+        ref={ ref ? ref : '' }
+        type={ type } 
+        className='input-field' 
+        placeholder={ placeholder } 
+        defaultValue={ value ? value : '' }/>
     </div>
   );
-}
+})
 
 export default InputField;

@@ -8,9 +8,10 @@ import Students from './pages/students/students';
 import StudentProfile from './pages/studentProfile/studentProfile';
 import Notfoundpage from './pages/404/NotFoundPage';
 import AddStudent from './pages/addStudent/addStudent';
-import { BrowserRouter as Router, Route, Switch, Link, Redirect} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
 
-function App() {
+
+function App() { 
 
   let loggedIn = false
 
@@ -26,34 +27,14 @@ function App() {
           }
         </Route>
         <Route exact path='/login' component={ Login }/>
-        <Route exact path='/students'>
-          {
-            loggedIn ? 
-            (<Students/>)
-            :
-            (<Redirect from='/' to='/login'/>)
-          }
-        </Route>
-        <Route exact path='/studentprofile'>
-          {
-            loggedIn ? 
-            (<StudentProfile/>)
-            :
-            (<Redirect from='/' to='/login'/>)
-          }
-        </Route>
-        <Route exact path='/addstudent'>
-          {
-            loggedIn ? 
-            (<AddStudent/>)
-            :
-            (<Redirect from='/' to='/login'/>)
-          }
-        </Route>
+        <Route exact path='/students' component={ Students }/>
+        <Route exact path='/studentprofile' component={ StudentProfile }/>
+        <Route exact path='/addstudent' component={ AddStudent }/>
         <Route component={ Notfoundpage }/>
       </Switch>
     </Router>
   )
 }
+
 
 export default App;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import InputField from '../../pure/inputField/inputField';
 import './addStudentForm.css'
 import { countries } from '../../../data/countries';
@@ -8,6 +8,10 @@ import UploadFile from '../../pure/uploadFile/uploadFile';
 
 
 const AddStudentForm = () => {
+
+  const fullnameRef = useRef('')
+  const phoneRef = useRef('')
+  const emailRef = useRef('')
 
   const countryList = []
   const cityList = []
@@ -20,11 +24,11 @@ const AddStudentForm = () => {
   return (
     <div className='add-student-form'>
       <div className='add-student-form-inputs inputs-1'>
-        <InputField name='Nombre y Apellidos' placeholder='Ej: Juan Pérez Lorca'/>
+        <InputField ref={fullnameRef} name='Nombre y Apellidos' placeholder='Ej: Juan Pérez Lorca'/>
         
         <div className='add-student-half-width'>
-          <InputField name='Nº Teléfono' placeholder='Ej: +34 612 34 56 78'/>
-          <InputField name='Email' placeholder='Ej: user@mail.com'/>
+          <InputField ref={phoneRef} name='Nº Teléfono' placeholder='Ej: +34 612 34 56 78'/>
+          <InputField ref={emailRef} name='Email' placeholder='Ej: user@mail.com'/>
         </div>
         
         <div className='add-student-half-width'>  

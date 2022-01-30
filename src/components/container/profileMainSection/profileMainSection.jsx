@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import InputField from '../../pure/inputField/inputField';
 import InputSelect from '../../pure/inputSelect/inputSelect';
 import InputTags from '../../pure/inputTags/inputTags';
@@ -9,6 +9,10 @@ import { student } from '../../../data/exampleStudent'
 import { countries } from '../../../data/countries';
 
 const ProfileMainSection = () => {
+
+  const fullnameRef = useRef('')
+  const phoneRef = useRef('')
+  const emailRef = useRef('')
 
   const countryList = []
   const cityList = []
@@ -35,12 +39,12 @@ const ProfileMainSection = () => {
     </div>
           
       <div className='profile-inputs'>
-        <InputField name='Nombre y Apellidos' placeholder='Introduce nombre completo'
+        <InputField ref={fullnameRef} name='Nombre y Apellidos' placeholder='Introduce nombre completo'
         value={student.fullName}/>
 
         <div className='profile-half-width'>
-          <InputField name='Nº Teléfono' placeholder='Introduce teléfono' value={student.phoneNumber}/>
-          <InputField name='Email' placeholder='Introduce correo electrónico' value={student.email}></InputField>
+          <InputField ref={phoneRef} name='Nº Teléfono' placeholder='Introduce teléfono' value={student.phoneNumber}/>
+          <InputField ref={emailRef} name='Email' placeholder='Introduce correo electrónico' value={student.email}></InputField>
         </div>
         
         <div className='profile-half-width'>  
