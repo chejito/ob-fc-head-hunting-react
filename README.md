@@ -1,2 +1,2 @@
-# Entrega fase 3
-Tenéis que implementar el diseño actual en React.
+# OpenBootcamp First Commit  
+Frontend del proyecto de gestión de candidatos
