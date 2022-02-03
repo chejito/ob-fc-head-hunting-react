@@ -3,13 +3,13 @@ import './studentsTableBody.css'
 import TagPills from '../../pure/tagPills/tagPills';
 
 
-const StudentsTableBody = (props) => {  
+const StudentsTableBody = ({students, updateStudents}) => {  
   return (
     <tbody className='students-table-body'>
-        {props.students.map((student, index) =>(          
+        {students.map((student, index) =>(          
           <tr key={ index }>
             <td className='col1' >
-              { student.name }
+              { student.fullname }
             </td>
             <td className='col2'>
               { student.city }
@@ -18,7 +18,7 @@ const StudentsTableBody = (props) => {
               { student.country }
             </td>
             <td className='col4'>
-              { student.phone }
+              { student.phoneNumber }
             </td>
             <td className='col5'>
               { student.email }

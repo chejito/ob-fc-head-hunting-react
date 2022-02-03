@@ -3,14 +3,13 @@ import StudentsMainSection from '../mainSection/studentsMainSection';
 import StudentsAside from '../studentsAside/studentsAside';
 import './studentsMain.css'
 
-const StudentsMain = () => {
+const StudentsMain = ({students, updateStudents}) => {
   return (
     <main className='students-main'>
       <div className='students-main-container'>
-        <StudentsMainSection></StudentsMainSection>
+        <StudentsMainSection students={students} updateStudents={updateStudents}></StudentsMainSection>
         <StudentsAside></StudentsAside>
-      </div>
-      
+      </div>    
     </main>
   );
 }

@@ -1,13 +1,41 @@
-import React, { useRef } from 'react';
+import React, { useRef, useContext, useState } from 'react';
 import CompanyName from '../companyName/companyName';
 import InputField from '../inputField/inputField';
 import RememberPassword from '../rememberPassword/rememberPassword';
+import { login } from '../../../services/AuthService'
 import './loginForm.css'
 
-const LoginForm = ({logged, onLogin}) => {
+const LoginForm = ({updateUser}) => {  
+
 
   const emailRef = useRef('')
   const passwordRef = useRef('')
+
+  const authUser = () => {  
+    
+    login(emailRef.current.value, passwordRef.current.value)
+      .then((response) => {
+        if(response.data.token) {
+          alert(JSON.stringify(response.data.token))          
+          sessionStorage.setItem('token', response.data.token)
+          updateUser(
+            {
+              loggedIn: true,
+              user: null,
+              token: response.data.token
+            }
+          )
+        } else {
+          sessionStorage.removeItem('token')
+          throw new Error('Login failure')
+        }
+      })
+      .catch((error) => {
+        alert(`Something went wrong: ${error}`)
+        sessionStorage.removeItem('token')
+      })
+      .finally(() => console.log('Login done'))
+  }
 
   return (
     <div className='login-form-container'>
@@ -23,8 +51,7 @@ const LoginForm = ({logged, onLogin}) => {
         <button 
           onClick={(e) => {
             e.preventDefault()
-            onLogin(emailRef.current.value, passwordRef.current.value)
-          }} className='input-text-button'>
+            authUser()}} className='input-text-button'>
           Iniciar Sesión
         </button>
       </form>

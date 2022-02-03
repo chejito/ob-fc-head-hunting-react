@@ -4,14 +4,22 @@ import StudentsMain from '../../components/container/studentsMain/studentsMain';
 import { getAllPagedStudents, getStudentProfile } from '../../services/StudentsService'; 
 import './students.css'
 
-const Students = () => {
+const Students = ({updateUser}) => {
 
-  const [students, setStudents] = useState([]);
-  const [selectedStudent, setSelectedStudent] = useState({});
-  const [totalStudents, setTotalStudents] = useState(10);
-  const [studentsPerPage, setStudentsPerPage] = useState(5);
-  const [pages, setPages] = useState(1);
+  const initialState = {
+    studentList: [],
+    totalStudents: 0,
+    studentsPerPage: 12,
+    totalPages: 1,
+    page: 1,
+    selectedStudent: null
+  }
 
+  const [studentsState, setStudentsState] = useState(initialState);
+
+  const updateStudents = (newState) => {
+    setStudentsState(newState)
+  }
   
   useEffect(() => {
     obtainStudents()
@@ -23,40 +31,46 @@ const Students = () => {
     getAllPagedStudents(1, token)
       .then((response) => {
         console.log('All students', response.students)
-        setStudents(response.students)
-        setPages(response.totalPages)
-        setStudentsPerPage(response.studentsPerPage)
-        setTotalStudents(response.totalItems)
+        updateStudents(
+          {
+            studentList: response.students,
+            totalStudents: response.totalItems,
+            studentsPerPage: response.studentsPerPage,
+            totalPages: response.totalPages,
+            page: response.currentPage,
+            selectedStudent: null
+          }
+        )
       })
       .catch((error) => {
         alert(`Error while retrieving the students: ${error}`)
       })
       .finally(() => {
         console.log('Ended obtaining students:')
-        console.table(students)
+        console.table(studentsState.studentList)
       })
   }
 
-  const obtainStudentProfile = (fullname) => {
-    getStudentProfile(fullname)
-    .then((response) => {
-        console.log('Student', response.student)
-        setSelectedStudent(response.student)
-      })
-      .catch((error) => {
-        alert(`Error while retrieving the student: ${error}`)
-      })
-      .finally(() => {
-        console.log('Ended obtaining student:')
-        console.table(selectedStudent)
-      })
-  }
+  // const obtainStudentProfile = (fullname) => {
+  //   getStudentProfile(fullname)
+  //   .then((response) => {
+  //       console.log('Student', response.student)
+  //       setSelectedStudent(response.student)
+  //     })
+  //     .catch((error) => {
+  //       alert(`Error while retrieving the student: ${error}`)
+  //     })
+  //     .finally(() => {
+  //       console.log('Ended obtaining student:')
+  //       console.table(selectedStudent)
+  //     })
+  // }
 
 
   return (
     <div className='students-container'>
-      <StudentsHeader></StudentsHeader>
-      <StudentsMain></StudentsMain>
+      <StudentsHeader/>
+      <StudentsMain students={studentsState.studentList} updateStudents={updateStudents}/>
     </div>
   );
 }

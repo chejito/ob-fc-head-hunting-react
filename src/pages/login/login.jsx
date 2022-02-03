@@ -1,13 +1,13 @@
 import React from 'react';
-import LoginFormContainer from '../../components/container/loginFormContainer/loginFormContainer';
+import LoginForm from '../../components/pure/loginForm/loginForm';
 import LoginFooterContainer from '../../components/pure/loginFooter/loginFooter'
 import './login.css'
 
-const Login = () => {
+const Login = ({updateUser}) => {
   return (
     <div className='login-container'>
       <section className='login-section'>
-      <LoginFormContainer/>
+      <LoginForm updateUser={updateUser}/>
       <LoginFooterContainer/>
       </section>      
     </div>

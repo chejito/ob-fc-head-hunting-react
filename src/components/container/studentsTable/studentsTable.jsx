@@ -5,21 +5,13 @@ import StudentsTableHead from '../../pure/studentsTableHead/studentsTableHead';
 import { students } from '../../../data/students';
 import StudentsTableFooter from '../../pure/studentsTableFooter/studentsTableFooter';
 
-const StudentsTable = () => {
-
-  let totalStudents = students.length
-  let studentsToShow = []
+const StudentsTable = ({students, updateStudents}) => {  
   
-  for (let i = 0; i < 12; i++) {
-    studentsToShow.push(students[i])
-  }
-
-
   return (
     <table className='students-table'>
       <StudentsTableHead></StudentsTableHead>
-      <StudentsTableBody students={studentsToShow}></StudentsTableBody>
-      <StudentsTableFooter totalStudents={totalStudents}></StudentsTableFooter>
+      <StudentsTableBody students={students} updateStudents={updateStudents}></StudentsTableBody>
+      <StudentsTableFooter totalStudents={students.length}></StudentsTableFooter>
     </table>
   );
 }

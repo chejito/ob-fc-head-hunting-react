@@ -3,17 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { createAsyncAppStore } from './store/config/storeConfig'
-import { Provider } from 'react-redux';
 
-let asyncAppStore = createAsyncAppStore()
 
 ReactDOM.render(
-  <Provider store={asyncAppStore}>
     <React.StrictMode>
       <App />
-    </React.StrictMode>
-  </Provider>,
+    </React.StrictMode>,
   document.getElementById('root')
 );
 
