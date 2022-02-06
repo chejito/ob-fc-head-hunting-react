@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, createContext } from 'react';
 import StudentsHeader from '../../components/container/studentsHeader/studentsHeader';
 import StudentsMain from '../../components/container/studentsMain/studentsMain';
-import { getAllPagedStudents, getStudentProfile } from '../../services/StudentsService'; 
+import { getAllPagedStudents } from '../../services/StudentsService'; 
+import StudentProfile from '../studentProfile/studentProfile';
 import './students.css'
 
 const Students = ({updateUser}) => {
@@ -21,14 +22,15 @@ const Students = ({updateUser}) => {
     setStudentsState(newState)
   }
   
+  
   useEffect(() => {
     obtainStudents()
   }, []);
 
-  const obtainStudents = () => {
+  const obtainStudents = (page=1) => {
     let token = sessionStorage.getItem('token')
 
-    getAllPagedStudents(1, token)
+    getAllPagedStudents(page, token)
       .then((response) => {
         console.log('All students', response.students)
         updateStudents(
@@ -49,29 +51,19 @@ const Students = ({updateUser}) => {
         console.log('Ended obtaining students:')
         console.table(studentsState.studentList)
       })
-  }
-
-  // const obtainStudentProfile = (fullname) => {
-  //   getStudentProfile(fullname)
-  //   .then((response) => {
-  //       console.log('Student', response.student)
-  //       setSelectedStudent(response.student)
-  //     })
-  //     .catch((error) => {
-  //       alert(`Error while retrieving the student: ${error}`)
-  //     })
-  //     .finally(() => {
-  //       console.log('Ended obtaining student:')
-  //       console.table(selectedStudent)
-  //     })
-  // }
+  }  
 
 
   return (
     <div className='students-container'>
-      <StudentsHeader/>
-      <StudentsMain students={studentsState.studentList} updateStudents={updateStudents}/>
-    </div>
+      {studentsState.selectedStudent ? 
+      (<StudentProfile student={studentsState.selectedStudent} updateStudents={updateStudents}/>)
+      :
+      (<div>
+        <StudentsHeader/>
+        <StudentsMain studentsState={studentsState} updateStudents={updateStudents}/>
+      </div>)}
+    </div>    
   );
 }
 

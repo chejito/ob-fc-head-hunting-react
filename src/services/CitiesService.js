@@ -1,4 +1,4 @@
-export const getAllPagedStudents = async (page, token) => {
+export const getAllCities = async (token) => {
 
   let body = {
     token: token
@@ -6,7 +6,7 @@ export const getAllPagedStudents = async (page, token) => {
 
   console.log(body)
   
-  let response = await fetch(`https://ob-fc-headhunt.herokuapp.com/api/students?page=${page}`, {
+  let response = await fetch('https://ob-fc-headhunt.herokuapp.com/api/countriescities', {
     headers: {
       'Access-Control-Allow-Origin': '*',
       'Content-type': 'application/json',

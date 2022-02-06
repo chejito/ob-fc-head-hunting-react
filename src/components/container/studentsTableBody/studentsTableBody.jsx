@@ -3,11 +3,27 @@ import './studentsTableBody.css'
 import TagPills from '../../pure/tagPills/tagPills';
 
 
-const StudentsTableBody = ({students, updateStudents}) => {  
+const StudentsTableBody = ({studentsState, updateStudents}) => { 
+
+  const students = studentsState.studentList
+  
+  const selectStudent = (index) => {
+    updateStudents(
+      {
+        ...studentsState,
+        selectedStudent: students[index]
+      }
+    )
+  } 
+
   return (
     <tbody className='students-table-body'>
         {students.map((student, index) =>(          
-          <tr key={ index }>
+          <tr 
+            key={ index } 
+            onClick={(e) => {
+              e.preventDefault()
+              selectStudent(index)}}>
             <td className='col1' >
               { student.fullname }
             </td>

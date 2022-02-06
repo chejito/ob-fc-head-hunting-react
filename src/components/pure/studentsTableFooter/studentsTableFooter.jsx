@@ -1,9 +1,8 @@
 import React from 'react';
 import './studentsTableFooter.css'
 
-const StudentsTableFooter = (props) => {
+const StudentsTableFooter = ({totalStudents}) => {
 
-  const totalStudents = props.totalStudents
   const pages = Math.ceil(totalStudents / 12)
 
   return (
