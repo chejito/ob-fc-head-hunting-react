@@ -5,6 +5,7 @@ import { countries } from '../../../data/countries';
 import InputSelect from '../../pure/inputSelect/inputSelect';
 import InputTags from '../../pure/inputTags/inputTags'
 import UploadFile from '../../pure/uploadFile/uploadFile';
+import InputRadio from '../../pure/inputRadio/inputRadio';
 
 
 const AddStudentForm = () => {
@@ -37,8 +38,8 @@ const AddStudentForm = () => {
         </div>
         
         <div className='add-student-half-width'>   
-          <InputSelect name='Traslado' options={move}/>
-          <InputSelect name='Presencialidad' options={modalities}/>        
+          <InputRadio name='Traslado' options={move}/>
+          <InputRadio name='Presencialidad' options={modalities}/>        
         </div>
       </div>
 

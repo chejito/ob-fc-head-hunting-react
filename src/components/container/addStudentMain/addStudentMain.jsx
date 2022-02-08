@@ -3,17 +3,21 @@ import AddStudentButtonBar from '../addStudentButtons/addStudentButtons';
 import AddStudentForm from '../addStudentForm/addStudentForm';
 import './addStudentMain.css'
 
-const AddStudentMain = () => {
+const AddStudentMain = ({closeModal}) => {
   return (
     <main className='add-student-main'>
       <div className='add-student-form-header'>
         <p>Nuevo Alumno</p>
-        <span className='material-icons close-icon'>
+        <span className='material-icons close-icon' 
+          onClick={(e) => {
+            e.preventDefault()
+            closeModal()
+          }}>
           close
         </span>
       </div>
       <AddStudentForm/>
-      <AddStudentButtonBar/>
+      <AddStudentButtonBar closeModal={closeModal}/>
     </main>
   );
 }

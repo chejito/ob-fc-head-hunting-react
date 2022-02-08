@@ -1,7 +1,7 @@
 import React from 'react';
 import './resumeeField.css'
 
-const ResumeeField = () => {
+const ResumeeField = ({resumeUrl}) => {
   return (
     <div className='resumee-container'>
       <p>Documento CV</p>

@@ -2,10 +2,10 @@ import React from 'react';
 import './addStudent.css'
 import AddStudentMain from '../../components/container/addStudentMain/addStudentMain';
 
-const AddStudent = () => {
+const AddStudent = ({closeModal}) => {
   return (
     <div className='add-student-container'>
-      <AddStudentMain/>
+      <AddStudentMain closeModal={closeModal}/>
     </div>
   );
 }

@@ -1,25 +1,28 @@
 import React from 'react';
 import './inputRadio.css'
 
-const InputRadio = (props) => {
+const InputRadio = React.forwardRef(({name, options, value}, ref) => {
 
-  const inputName = props.name.toLowerCase()
-  const options = props.options
+  const inputName = name.toLowerCase()
   
   return (
     <div className='input'>
-      <p className='input-label'>{props.name}</p>
-      {options.map((option, index) => (
-        <div className='radio-option' key={index}>
-          <input name={props.label} type='radio' className='radio-field' 
-          value={option}/>
-          <label htmlFor={props.label} className='option-label'>          
-              {option}
-          </label>
-        </div>  
-      ))}    
+      <p className='input-label'>{name}</p>
+      {options.map((option, index) => {
+        return (   
+          <div className='radio-option' key={index}>
+            <input 
+            ref={ref}
+            name={inputName} type='radio' className='radio-field' 
+            value={option} defaultChecked={option === value}/>
+            <label htmlFor={inputName} className='option-label'>          
+                {option}
+            </label>
+          </div> 
+        )
+      })}    
     </div>
   );
-}
+})
 
 export default InputRadio;

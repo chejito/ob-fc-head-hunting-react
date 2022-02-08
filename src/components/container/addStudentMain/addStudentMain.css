@@ -23,5 +23,6 @@
 
 .close-icon {
   font-size: 18px;
-  color: var(--darker-grey-color)
+  color: var(--darker-grey-color);
+  cursor: pointer;
 }

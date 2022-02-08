@@ -3,10 +3,10 @@ import './studentsMainSection.css'
 import StudentsTable from '../studentsTable/studentsTable';
 import TableBar from '../tableBar/tableBar';
 
-const StudentsMainSection = ({studentsState, updateStudents}) => {
+const StudentsMainSection = ({studentsState, updateStudents, openModal}) => {
   return (
     <section className='students-main-section'>
-      <TableBar/>
+      <TableBar openModal={openModal}/>
       <StudentsTable studentsState={studentsState} updateStudents={updateStudents}/>
     </section>
   );
