@@ -4,31 +4,33 @@ import InputSelect from '../../pure/inputSelect/inputSelect';
 import InputTags from '../../pure/inputTags/inputTags';
 import ResumeeField from '../../pure/resumeeField/resumeeField';
 import './profileMainSection.css'
-import img from '../../../assets/images/bunny-profile.jpg'
-import { student } from '../../../data/exampleStudent'
-import { countries } from '../../../data/countries';
+import InputRadio from '../../pure/inputRadio/inputRadio';
 
-const ProfileMainSection = () => {
+const ProfileMainSection = ({student, utils}) => {
 
   const fullnameRef = useRef('')
   const phoneRef = useRef('')
   const emailRef = useRef('')
+  const countryRef = useRef('')
+  const cityRef = useRef('')
+  const mobilityRef = null
+  const modalityRef = null
 
-  const countryList = []
-  const cityList = []
+  
   const modalities = ['Presencial', 'En remoto']
   const move = ['Sí', 'No']
 
-  countries.forEach(country => countryList.push(country.name))
-  countries.forEach(country => cityList.push(country.cities))
+  const countries = Object.keys(utils.countries)
+  const cities = utils.countries['España']
+
 
   return (
     <section className='profile-main-section'>
       <div className='profile-header'>
-      <img src={img} alt='Fotografía de perfil del alumno' className='profile-photo'/>
+      <img src={student.photoUrl} alt='Fotografía de perfil del alumno' className='profile-photo'/>
     
       <div className='student'>
-        <p className='student-name'>{student.fullName}</p>
+        <p className='student-name'>{student.fullname}</p>
         <p className='location'>
           <span className='material-icons-outlined place-icon'>place</span>
           <span className='location-city'>{student.city}</span>
@@ -40,7 +42,7 @@ const ProfileMainSection = () => {
           
       <div className='profile-inputs'>
         <InputField ref={fullnameRef} name='Nombre y Apellidos' placeholder='Introduce nombre completo'
-        value={student.fullName}/>
+        value={student.fullname}/>
 
         <div className='profile-half-width'>
           <InputField ref={phoneRef} name='Nº Teléfono' placeholder='Introduce teléfono' value={student.phoneNumber}/>
@@ -48,22 +50,22 @@ const ProfileMainSection = () => {
         </div>
         
         <div className='profile-half-width'>  
-          <InputSelect name='País' options={countryList} 
+          <InputSelect ref={countryRef} name='País' options={countries} 
             value={student.country}
           />
-          <InputSelect name='Ciudad' options={cityList[0]}
+          <InputSelect ref={cityRef} name='Ciudad' options={cities}
             value={student.city}
           />
         </div>
         
         <div className='profile-half-width'>   
-          <InputSelect name='Traslado' options={move}/>
-          <InputSelect name='Presencialidad' options={modalities}/>
+          <InputRadio ref={mobilityRef} name='Traslado' options={move} value={student.mobility ? 'Sí': 'No'}/>
+          <InputRadio ref={modalityRef} name='Presencialidad' options={modalities} value={student.modality ? 'Presencial' : 'En remoto'}/>
         
         </div>
-        <ResumeeField/>
+        <ResumeeField resumeUrl={student.resumeUrl}/>
         
-        <InputTags tags={['html&css', 'react', 'angular']}/>
+        <InputTags tags={student.tags} utils={utils}/>
       </div>
       
       

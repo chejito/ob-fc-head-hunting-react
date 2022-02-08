@@ -5,28 +5,39 @@ import "@fontsource/material-icons-outlined";
 import "@fontsource/material-icons";
 import Login from './pages/login/login';
 import Students from './pages/students/students';
-import StudentProfile from './pages/studentProfile/studentProfile';
 import Notfoundpage from './pages/404/NotFoundPage';
-import AddStudent from './pages/addStudent/addStudent';
 import { BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
-import React, { useState, createContext } from 'react';
+import React, { useState } from 'react';
 
-export const StateContext = createContext(null)
 
-function App() {
-  
+function App() {  
 
-  const initialState = {
+  const initialUser = {
     loggedIn: false,
     user: null,
     token: ''      
   }
 
-  const [userState, setUserState] = useState(initialState);
+  const [userState, setUserState] = useState(initialUser);
 
   const updateUser = (newState) => {
     setUserState(newState)
   }
+
+  const initialStudents = {
+    studentList: [],
+    totalStudents: 0,
+    studentsPerPage: 12,
+    totalPages: 1,
+    page: 1,
+    selectedStudent: null
+  }
+
+  const [studentsState, setStudentsState] = useState(initialStudents);
+
+  const updateStudents = (newState) => {
+    setStudentsState(newState)
+  }  
   
   return (
     <Router>
@@ -44,20 +55,22 @@ function App() {
             userState.loggedIn ? 
             (<Redirect from='/login' to='/students'/>)
             :
-            (<Login updateUser={updateUser}/>)
+            (<Login userState={userState} updateUser={updateUser}/>)
           }        
         </Route>
         <Route exact path='/students'>
           {
             userState.loggedIn ? 
-            (<Students updateUser={updateUser}/>)
+            (<Students 
+              userState={userState} 
+              updateUser={updateUser}
+              studentsState={studentsState}
+              updateStudents={updateStudents}
+               />)
             :
             (<Redirect from='/students' to='/login'/>)
           }
         </Route>
-        
-        {/* <Route exact path='/studentprofile' component={ StudentProfile }/>
-        <Route exact path='/addstudent' component={ AddStudent }/> */}
         <Route component={ Notfoundpage }/>
       </Switch>
     </Router>

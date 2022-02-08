@@ -3,11 +3,11 @@ import './studentsHeader.css'
 import CompanyName from '../../pure/companyName/companyName';
 import UserDisplay from '../../pure/userDisplay/userDisplay';
 
-const StudentsHeader = () => {
+const StudentsHeader = ({userState, updateUser}) => {
   return (
     <header className='students-header'>
-      <CompanyName></CompanyName>
-      <UserDisplay></UserDisplay>
+      <CompanyName/>
+      <UserDisplay userState={userState} updateUser={updateUser} />
     </header>
   );
 }

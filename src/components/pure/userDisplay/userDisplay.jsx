@@ -1,14 +1,16 @@
 import React from 'react';
 import './userDisplay.css'
 
-const UserDisplay = (props) => {
+const UserDisplay = ({userState, updateUser}) => {
 
-  const photo = props.photo == null ? 'NA' : props.photo
-  const username = props.username == null ? 'UserName' : props.username
+  const user = userState.user
+
+  const capitals = user == null ? 'NA' : user.username
+  const username = user == null ? 'UserName' : user.username
 
   return (
     <div className='username-container'>
-      <div className='username-image'>{photo}</div>
+      <div className='username-image'>{capitals}</div>
       <div className='username-user'>{username}</div>
       <span className='material-icons username-button'>
         expand_more

@@ -1,38 +1,40 @@
-import React, { useState, useEffect, createContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import StudentsHeader from '../../components/container/studentsHeader/studentsHeader';
 import StudentsMain from '../../components/container/studentsMain/studentsMain';
-import { getAllPagedStudents } from '../../services/StudentsService'; 
+import { getAllPagedStudents } from '../../services/StudentsService';
+import { getCountriesTags } from '../../services/InitService';
 import StudentProfile from '../studentProfile/studentProfile';
 import './students.css'
+import AddStudent from '../addStudent/addStudent';
 
-const Students = ({updateUser}) => {
-
+const Students = ({userState, updateUser, studentsState, updateStudents}) => {  
+  
   const initialState = {
-    studentList: [],
-    totalStudents: 0,
-    studentsPerPage: 12,
-    totalPages: 1,
-    page: 1,
-    selectedStudent: null
+    countries: [], 
+    tags: []
   }
 
-  const [studentsState, setStudentsState] = useState(initialState);
+  const [utils, setUtils] = useState(initialState);
 
-  const updateStudents = (newState) => {
-    setStudentsState(newState)
+  const [modalIsOpen, setModalIsOpen] = useState(false)
+
+  const openModal = () => {
+    setModalIsOpen(true)
   }
   
-  
+  const closeModal = () => {
+    setModalIsOpen(false)
+  }  
+
   useEffect(() => {
-    obtainStudents()
+    obtainInitValues()
   }, []);
 
-  const obtainStudents = (page=1) => {
+  const obtainInitValues = (page=1) => {
     let token = sessionStorage.getItem('token')
 
     getAllPagedStudents(page, token)
       .then((response) => {
-        console.log('All students', response.students)
         updateStudents(
           {
             studentList: response.students,
@@ -47,9 +49,22 @@ const Students = ({updateUser}) => {
       .catch((error) => {
         alert(`Error while retrieving the students: ${error}`)
       })
-      .finally(() => {
-        console.log('Ended obtaining students:')
-        console.table(studentsState.studentList)
+
+      getCountriesTags(token)
+        .then((response) => {
+          const countryList = response.countries
+          const tagList = response.tags
+        
+          setUtils(
+            {
+              countries: countryList,
+              tags: tagList
+            }
+          )
+
+      })
+      .catch((error) => {
+        alert(`Error while retrieving the countries: ${error}`)
       })
   }  
 
@@ -57,12 +72,24 @@ const Students = ({updateUser}) => {
   return (
     <div className='students-container'>
       {studentsState.selectedStudent ? 
-      (<StudentProfile student={studentsState.selectedStudent} updateStudents={updateStudents}/>)
+      (<StudentProfile
+        userState={userState}
+        updateUser={updateUser} 
+        studentsState={studentsState} 
+        updateStudents={updateStudents}
+        utils={utils}/>)
       :
-      (<div>
-        <StudentsHeader/>
-        <StudentsMain studentsState={studentsState} updateStudents={updateStudents}/>
-      </div>)}
+      modalIsOpen ? 
+        (
+          <AddStudent closeModal={closeModal}/>
+        )
+        :        
+        (<div>
+          <StudentsHeader 
+            userState={userState}
+            updateUser={updateUser} />
+          <StudentsMain studentsState={studentsState} updateStudents={updateStudents} openModal={openModal}/>
+        </div>)}
     </div>    
   );
 }

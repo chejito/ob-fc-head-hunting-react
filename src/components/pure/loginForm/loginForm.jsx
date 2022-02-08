@@ -5,7 +5,7 @@ import RememberPassword from '../rememberPassword/rememberPassword';
 import { login } from '../../../services/AuthService'
 import './loginForm.css'
 
-const LoginForm = ({updateUser}) => {  
+const LoginForm = ({userState, updateUser}) => {  
 
 
   const emailRef = useRef('')
@@ -16,12 +16,11 @@ const LoginForm = ({updateUser}) => {
     login(emailRef.current.value, passwordRef.current.value)
       .then((response) => {
         if(response.data.token) {
-          alert(JSON.stringify(response.data.token))          
           sessionStorage.setItem('token', response.data.token)
           updateUser(
             {
               loggedIn: true,
-              user: null,
+              user: response.data.user,
               token: response.data.token
             }
           )

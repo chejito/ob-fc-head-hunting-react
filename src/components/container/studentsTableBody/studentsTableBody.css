@@ -1,5 +1,6 @@
 .students-table-body tr {
   height: 56px;
+  cursor: pointer;
 }
 
 .students-table-body td {

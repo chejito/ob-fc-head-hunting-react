@@ -3,11 +3,14 @@ import ProfileMainSection from '../profileMainSection/profileMainSection';
 import ProfileResumeeView from '../../pure/profileResumeeView/profileResumeeView';
 import './studentProfileMain.css'
 
-const StudentProfileMain = () => {
+const StudentProfileMain = ({studentsState, utils}) => {
   return (
     <main className='profile-main'>
-      <ProfileMainSection/>
-      <ProfileResumeeView/>
+      <ProfileMainSection 
+        student={studentsState.selectedStudent}
+        utils={utils} 
+        />
+      <ProfileResumeeView resumeUrl={studentsState.selectedStudent.resumeUrl} />
     </main>
   );
 }

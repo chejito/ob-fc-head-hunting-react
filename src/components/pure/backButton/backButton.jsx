@@ -1,9 +1,24 @@
 import React from 'react';
 import './backButton.css'
 
-const BackButton = () => {
+const BackButton = ({studentsState, updateStudents}) => {
+
+  const goBack = () => {
+    updateStudents(
+      {
+        ...studentsState,
+        selectedStudent: null
+      }
+    )
+  } 
+
   return (
-    <button className='back-button'>
+    <button 
+      className='back-button'
+      onClick={(e) => {
+        e.preventDefault()
+        goBack()
+      }}>
       <span className='material-icons back-icon'>
         arrow_back
       </span>

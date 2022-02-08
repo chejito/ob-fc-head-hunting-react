@@ -1,27 +1,28 @@
 import React from 'react';
 import './inputSelect.css'
 
-const InputSelect = (props) => {
+const InputSelect = React.forwardRef(({options, name, value}, ref) => {
 
-  const options = props.options
-
-  const inputName = props.name.toLowerCase()
-  
+  const inputName = name.toLowerCase()
+    
   return (
     <div className='input'>
       <label htmlFor={inputName} className='input-label'>
-        {props.name}
+        {name}
       </label>
-      <select name={inputName} className='input-field' defaultValue={props.value ? {
-        value: props.value.toLowerCase(),
-        label: props.value
-         } : null }>
-        {options.map((option, index) => (
-          <option value={option.toLowerCase()} key={index}>{option}</option>
-        ))}        
+      <select
+        ref={ref} 
+        name={inputName} 
+        className='input-field'>
+          {options.map((option, index) => (
+            option === value ?         
+              <option value={option.toLowerCase()} key={index} selected>{option}</option>            
+              :            
+              <option value={option.toLowerCase()} key={index}>{option}</option>                       
+          ))}
       </select>
     </div>
   );
-}
+})
 
 export default InputSelect;
