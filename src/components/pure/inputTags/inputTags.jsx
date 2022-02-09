@@ -1,31 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './inputTags.css'
 import { tags } from '../../../data/tags'
 import InputTextSelect from '../inputTextSelect/inputTextSelect';
 
-const InputTags = (props) => {
+const InputTags = ({selectedTags, addTag, removeTag}) => {
+
+  console.log(selectedTags)
 
   const field = {
     name: 'Etiquetas',
     placeholder: 'Escribe para buscar...'
   }
 
-  const selectedTags = props.tags
-
   const optionTags = []
-  tags.forEach(tag => {
-    optionTags.push(tag)
-  })
+  tags.forEach(tag => optionTags.push(tag))
+  
+  const displayTags = []
+  selectedTags.forEach(tag => displayTags.push(tag))
 
   return (
     <div className='input-tags'>
       <InputTextSelect name={field.name} placeholder={field.placeholder} 
-      options={optionTags}></InputTextSelect>
+      options={optionTags} addTag={addTag}/>
       <div className='tags-display'>
-        {selectedTags.map((tag, index) => (
-          <span key={index} className='tags-display-tag'>
+        {displayTags.map((tag, index) => (
+          <span 
+            key={tag} 
+            className='tags-display-tag' 
+            >
             {tag}
-            <span className='material-icons clear-icon'>
+            <span className='material-icons clear-icon'
+            onClick={(e) => {
+              e.preventDefault()
+              removeTag(tag)
+            }}>
               clear
             </span>
           </span>

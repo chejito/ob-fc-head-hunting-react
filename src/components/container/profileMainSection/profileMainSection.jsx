@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import InputField from '../../pure/inputField/inputField';
 import InputSelect from '../../pure/inputSelect/inputSelect';
 import InputTags from '../../pure/inputTags/inputTags';
@@ -23,6 +23,22 @@ const ProfileMainSection = ({student, utils}) => {
   const countries = Object.keys(utils.countries)
   const cities = utils.countries['España']
 
+  const selectedTags = student.tags
+
+  const [tagsState, setTagsState] = useState(selectedTags);
+
+  const addTag = (newTag) => {
+    let newTags = [...tagsState]
+    if (!tagsState.includes(newTag)) {
+      newTags.push(newTag)
+      setTagsState(newTags)
+    }  
+  }
+
+  const removeTag = (tag) => {
+    let newTags = [...tagsState].filter(item => item !== tag)
+    setTagsState(newTags)
+  }
 
   return (
     <section className='profile-main-section'>
@@ -65,7 +81,7 @@ const ProfileMainSection = ({student, utils}) => {
         </div>
         <ResumeeField resumeUrl={student.resumeUrl}/>
         
-        <InputTags tags={student.tags} utils={utils}/>
+        <InputTags selectedTags={tagsState} addTag={addTag} removeTag={removeTag}/>
       </div>
       
       

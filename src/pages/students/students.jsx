@@ -27,10 +27,10 @@ const Students = ({userState, updateUser, studentsState, updateStudents}) => {
   }  
 
   useEffect(() => {
-    obtainInitValues()
+    obtainStudents()
   }, []);
 
-  const obtainInitValues = (page=1) => {
+  const obtainStudents = (page=1) => {
     let token = sessionStorage.getItem('token')
 
     getAllPagedStudents(page, token)
@@ -48,23 +48,6 @@ const Students = ({userState, updateUser, studentsState, updateStudents}) => {
       })
       .catch((error) => {
         alert(`Error while retrieving the students: ${error}`)
-      })
-
-      getCountriesTags(token)
-        .then((response) => {
-          const countryList = response.countries
-          const tagList = response.tags
-        
-          setUtils(
-            {
-              countries: countryList,
-              tags: tagList
-            }
-          )
-
-      })
-      .catch((error) => {
-        alert(`Error while retrieving the countries: ${error}`)
       })
   }  
 
@@ -88,7 +71,12 @@ const Students = ({userState, updateUser, studentsState, updateStudents}) => {
           <StudentsHeader 
             userState={userState}
             updateUser={updateUser} />
-          <StudentsMain studentsState={studentsState} updateStudents={updateStudents} openModal={openModal}/>
+          <StudentsMain 
+            studentsState={studentsState} 
+            updateStudents={updateStudents} 
+            openModal={openModal}
+            obtainStudents={obtainStudents}
+            />
         </div>)}
     </div>    
   );

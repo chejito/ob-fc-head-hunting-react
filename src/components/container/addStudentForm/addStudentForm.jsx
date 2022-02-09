@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import InputField from '../../pure/inputField/inputField';
 import './addStudentForm.css'
 import { countries } from '../../../data/countries';
@@ -16,11 +16,28 @@ const AddStudentForm = () => {
 
   const countryList = []
   const cityList = []
-  const modalities = ['Elige una opción', 'Presencial', 'En remoto']
-  const move = ['Elige una opción', 'Sí', 'No']
+  const modalities = ['Presencial', 'En remoto']
+  const move = ['Sí', 'No']
 
   countries.forEach(country => countryList.push(country.name))
   countries.forEach(country => cityList.push(country.cities))
+
+  const selectedTags = []
+
+  const [tagsState, setTagsState] = useState(selectedTags);
+
+  const addTag = (newTag) => {
+    let newTags = [...tagsState]
+    if (!tagsState.includes(newTag)) {
+      newTags.push(newTag)
+      setTagsState(newTags)
+    }  
+  }
+
+  const removeTag = (tag) => {
+    let newTags = [...tagsState].filter(item => item !== tag)
+    setTagsState(newTags)
+  }
 
   return (
     <div className='add-student-form'>
@@ -50,7 +67,7 @@ const AddStudentForm = () => {
         <UploadFile name='Documento CV' title='Subir documento PDF' 
         supported='.pdf' fileSize='20 MB' upload />
 
-        <InputTags tags={[]}/>
+        <InputTags selectedTags={tagsState} addTag={addTag} removeTag={removeTag}/>
       </div>
       
     </div>

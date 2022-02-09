@@ -13,6 +13,7 @@
 }
 
 .students-table-footer .col1,
+.before-icon
 .next-icon {
   color: var(--secondary-font-color);
 }
@@ -22,6 +23,13 @@
   padding-bottom: 2px;
   margin-left: 24px;
 }
+
+.before-icon {
+  vertical-align: middle;
+  padding-bottom: 2px;
+  margin-right: 24px;
+}
+
 
 .actual-page {
   display: inline-flex;

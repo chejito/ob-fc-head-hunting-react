@@ -1,21 +1,47 @@
 import React from 'react';
 import './studentsTableFooter.css'
 
-const StudentsTableFooter = ({totalStudents}) => {
+const StudentsTableFooter = ({studentsState, obtainStudents}) => {
 
-  const pages = Math.ceil(totalStudents / 12)
+  console.log(studentsState)
+  
+  const totalStudents = studentsState.totalStudents
+  const totalPages = studentsState.totalPages
+  const actualPage = studentsState.page
+  const studentsNumber = studentsState.studentList.length
+
+  const backPage = (e) => {
+    e.preventDefault()
+    obtainStudents(actualPage - 1)
+  }
+
+  const forwardPage = (e) => {
+    e.preventDefault()
+    obtainStudents(actualPage + 1)
+  }
 
   return (
     <tfoot className='students-table-footer'>
       <tr className='students-table-footer-row'>
         <td className='col1'>
-          { `${totalStudents} alumnos en total` }
+          { `${ studentsNumber } de ${ totalStudents } alumnos en total` }
         </td>
         <td className='col-page' colSpan='5'>
-          <span className='actual-page'>1</span> de { pages }
-          <span className='material-icons next-icon'>
+          {actualPage !== 1 ? 
+          (<span className='material-icons before-icon' onClick={(e) => backPage(e)}>
+            navigate_before
+          </span>)
+          :
+          null }          
+          <span className='actual-page'>{ actualPage }</span> de { totalPages }
+          {actualPage !== totalPages ? 
+          (
+          <span className='material-icons next-icon' onClick={(e) => forwardPage(e)}>
             navigate_next
-          </span>  
+          </span> 
+          )
+          :
+          null} 
         </td>        
       </tr>
     </tfoot>

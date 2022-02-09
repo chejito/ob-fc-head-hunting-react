@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import InputField from '../../pure/inputField/inputField';
 import InputSelect from '../../pure/inputSelect/inputSelect';
 import InputTags from '../../pure/inputTags/inputTags';
@@ -16,11 +16,26 @@ const StudentsAsideForm = () => {
   countries.forEach(country => countryList.push(country.name))
   countries.forEach(country => cityList.push(country.cities))
 
-  
+  const selectedTags = []
+
+  const [tagsState, setTagsState] = useState(selectedTags);
+
+  const addTag = (newTag) => {
+    let newTags = [...tagsState]
+    if (!tagsState.includes(newTag)) {
+      newTags.push(newTag)
+      setTagsState(newTags)
+    }  
+  }
+
+  const removeTag = (tag) => {
+    let newTags = [...tagsState].filter(item => item !== tag)
+    setTagsState(newTags)
+  }
 
   return (
     <form className='aside-form'>
-      <InputTags tags={[]}></InputTags>
+      <InputTags selectedTags={tagsState} addTag={addTag} removeTag={removeTag}/>
       <InputSelect name='País' options={countryList}/>
       <InputSelect name='Ciudad' options={cityList[0]}/>
       <InputRadio name='Presencialidad' options={modalities} value={''}/>
