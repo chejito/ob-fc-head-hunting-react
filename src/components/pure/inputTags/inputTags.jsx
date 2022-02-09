@@ -14,7 +14,7 @@ const InputTags = (props) => {
 
   const optionTags = []
   tags.forEach(tag => {
-    optionTags.push(tag.name)
+    optionTags.push(tag)
   })
 
   return (
