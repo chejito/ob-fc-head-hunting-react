@@ -4,6 +4,11 @@ import './inputSelect.css'
 const InputSelect = React.forwardRef(({options, name, value}, ref) => {
 
   const inputName = name.toLowerCase()
+
+  console.log(options)
+
+  const optionsToShow = []
+  if (options !== null && options !== undefined) options.forEach(element => optionsToShow.push(element))
     
   return (
     <div className='input'>

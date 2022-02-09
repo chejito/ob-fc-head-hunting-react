@@ -5,8 +5,9 @@ import InputTags from '../../pure/inputTags/inputTags';
 import ResumeeField from '../../pure/resumeeField/resumeeField';
 import './profileMainSection.css'
 import InputRadio from '../../pure/inputRadio/inputRadio';
+import { countries } from '../../../data/countries';
 
-const ProfileMainSection = ({student, utils}) => {
+const ProfileMainSection = ({student}) => {
 
   const fullnameRef = useRef('')
   const phoneRef = useRef('')
@@ -20,8 +21,11 @@ const ProfileMainSection = ({student, utils}) => {
   const modalities = ['Presencial', 'En remoto']
   const move = ['Sí', 'No']
 
-  const countries = Object.keys(utils.countries)
-  const cities = utils.countries['España']
+  const countryList = []
+  const cityList = []
+
+  countries.forEach(country => countryList.push(country.name))
+  countries.forEach(country => cityList.push(country.cities))
 
   const selectedTags = student.tags
 
@@ -66,10 +70,10 @@ const ProfileMainSection = ({student, utils}) => {
         </div>
         
         <div className='profile-half-width'>  
-          <InputSelect ref={countryRef} name='País' options={countries} 
+          <InputSelect ref={countryRef} name='País' options={countryList} 
             value={student.country}
           />
-          <InputSelect ref={cityRef} name='Ciudad' options={cities}
+          <InputSelect ref={cityRef} name='Ciudad' options={cityList[0]}
             value={student.city}
           />
         </div>
