@@ -2,15 +2,13 @@ import React, { useState } from 'react';
 import './inputTags.css'
 import { tags } from '../../../data/tags'
 import InputTextSelect from '../inputTextSelect/inputTextSelect';
+import InputSelect from '../inputSelect/inputSelect';
 
 const InputTags = ({selectedTags, addTag, removeTag}) => {
-
-  console.log(selectedTags)
-
-  const field = {
-    name: 'Etiquetas',
-    placeholder: 'Escribe para buscar...'
-  }
+ 
+  const name = 'Etiquetas'
+  const placeholder = 'Escribe para buscar...'
+ 
 
   const optionTags = []
   tags.forEach(tag => optionTags.push(tag))
@@ -20,10 +18,10 @@ const InputTags = ({selectedTags, addTag, removeTag}) => {
 
   return (
     <div className='input-tags'>
-      <InputTextSelect name={field.name} placeholder={field.placeholder} 
+      <InputTextSelect name={name} placeholder={placeholder} 
       options={optionTags} addTag={addTag}/>
       <div className='tags-display'>
-        {displayTags.map((tag, index) => (
+        {displayTags.map((tag) => (
           <span 
             key={tag} 
             className='tags-display-tag' 

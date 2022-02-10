@@ -26,4 +26,5 @@
 .radio-field {
   margin-top: 0;
   margin-right: 13px;
+  cursor: pointer;
 }

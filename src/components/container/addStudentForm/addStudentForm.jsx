@@ -23,8 +23,18 @@ const AddStudentForm = () => {
   countries.forEach(country => cityList.push(country.cities))
 
   const selectedTags = []
-
   const [tagsState, setTagsState] = useState(selectedTags);
+
+  const [photoUrlState, setPhotoUrlState] = useState('');
+  const [resumeUrlState, setResumeUrlState] = useState('');
+  
+  const updatePhotoUrl = (newUrl) => {
+    setPhotoUrlState(newUrl)
+  }
+
+  const updateResumeUrl = (newUrl) => {
+    setResumeUrlState(newUrl)
+  }
 
   const addTag = (newTag) => {
     let newTags = [...tagsState]
@@ -62,10 +72,20 @@ const AddStudentForm = () => {
 
       <div className='add-student-form-inputs inputs-2'>
         <UploadFile name='Foto de Perfil' title='Subir imagen' 
-        supported='.png, .jpg, y .jpeg' fileSize='2 MB' upload />
+        supported='.png, .jpg, y .jpeg' 
+        accepted='.png, .jpg, .jpeg'
+        fileSize='2 MB'
+        update={updatePhotoUrl}
+        fileType='photo'
+        upload />
 
         <UploadFile name='Documento CV' title='Subir documento PDF' 
-        supported='.pdf' fileSize='20 MB' upload />
+        supported='.pdf' 
+        accepted='.pdf' 
+        fileSize='20 MB' 
+        update={updateResumeUrl}
+        fileType='resumee'
+        upload />
 
         <InputTags selectedTags={tagsState} addTag={addTag} removeTag={removeTag}/>
       </div>

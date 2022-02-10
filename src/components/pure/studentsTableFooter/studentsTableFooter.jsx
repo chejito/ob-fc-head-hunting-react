@@ -2,8 +2,6 @@ import React from 'react';
 import './studentsTableFooter.css'
 
 const StudentsTableFooter = ({studentsState, obtainStudents}) => {
-
-  console.log(studentsState)
   
   const totalStudents = studentsState.totalStudents
   const totalPages = studentsState.totalPages

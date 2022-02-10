@@ -33,7 +33,6 @@ const LoginForm = ({userState, updateUser}) => {
         alert(`Something went wrong: ${error}`)
         sessionStorage.removeItem('token')
       })
-      .finally(() => console.log('Login done'))
   }
 
   return (
