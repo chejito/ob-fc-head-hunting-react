@@ -1,7 +1,7 @@
 import React from 'react';
 import './inputField.css'
 
-const InputField = React.forwardRef(({ name, type, placeholder, value }, ref) => {
+const InputField = React.forwardRef(({ name, type, placeholder, value, onChange }, ref) => {
 
   const inputName = name.toLowerCase() === 'contraseña' ?
   'contrasenia' :
@@ -17,7 +17,8 @@ const InputField = React.forwardRef(({ name, type, placeholder, value }, ref) =>
         type={ type } 
         className='input-field' 
         placeholder={ placeholder } 
-        defaultValue={ value ? value : '' }/>
+        defaultValue={ value ? value : '' }
+        onChange={onChange}/>
     </div>
   );
 })

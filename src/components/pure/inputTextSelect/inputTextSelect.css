@@ -23,7 +23,7 @@
   background-color: var(--main-bg-color);
   border: none;
   font-weight: 500;
-  color: var(--secondary-font-color);
+  color: var(--primary-font-color);
   padding: 0 15px;
   letter-spacing: 0.005em;
   outline: none;

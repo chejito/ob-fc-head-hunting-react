@@ -1,7 +1,7 @@
 import React from 'react';
 import './inputSelect.css'
 
-const InputSelect = React.forwardRef(({options, name, value}, ref) => {
+const InputSelect = React.forwardRef(({ options, name, value, onChange }, ref) => {
 
   const inputName = name.toLowerCase()
 
@@ -16,12 +16,13 @@ const InputSelect = React.forwardRef(({options, name, value}, ref) => {
       <select
         ref={ref} 
         name={inputName} 
-        className='input-field'>
+        className='input-field'
+        onChange={onChange}>
           {options.map((option, index) => (
             option === value ?         
-              <option value={option.toLowerCase()} key={index} selected>{option}</option>            
+              <option value={option} key={index} selected>{option}</option>            
               :            
-              <option value={option.toLowerCase()} key={index}>{option}</option>                       
+              <option value={option} key={index}>{option}</option>                       
           ))}
       </select>
     </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import './inputRadio.css'
 
-const InputRadio = React.forwardRef(({name, options, value}, ref) => {
+const InputRadio = React.forwardRef(({ name, options, value, onChange }, ref) => {
 
   const inputName = name.toLowerCase()
   
@@ -14,7 +14,8 @@ const InputRadio = React.forwardRef(({name, options, value}, ref) => {
             <input 
             ref={ref}
             name={inputName} type='radio' className='radio-field' 
-            value={option} defaultChecked={option === value}/>
+            value={option} defaultChecked={option === value}
+            onChange={onChange}/>
             <label htmlFor={inputName} className='option-label'>          
                 {option}
             </label>

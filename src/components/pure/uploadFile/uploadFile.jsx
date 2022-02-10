@@ -21,11 +21,9 @@ const UploadFile = ({name, title, upload, disable, supported, accepted, fileSize
     formData.append('file', file, file.name )
     let token = sessionStorage.getItem('token')
 
-    console.log(formData)
 
     uploadToCloud(formData, token, fileType)
       .then((response) => {
-        console.log(response)
         update(response.data.urlFile)
       })
       .catch((error) => {

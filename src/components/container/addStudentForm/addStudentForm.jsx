@@ -6,9 +6,10 @@ import InputSelect from '../../pure/inputSelect/inputSelect';
 import InputTags from '../../pure/inputTags/inputTags'
 import UploadFile from '../../pure/uploadFile/uploadFile';
 import InputRadio from '../../pure/inputRadio/inputRadio';
+import RoundedButton from '../../pure/roundedButton/roundedButton';
 
 
-const AddStudentForm = () => {
+const AddStudentForm = ({closeModal}) => {
 
   const fullnameRef = useRef('')
   const phoneRef = useRef('')
@@ -50,47 +51,56 @@ const AddStudentForm = () => {
   }
 
   return (
-    <div className='add-student-form'>
-      <div className='add-student-form-inputs inputs-1'>
-        <InputField ref={fullnameRef} name='Nombre y Apellidos' placeholder='Ej: Juan Pérez Lorca'/>
-        
-        <div className='add-student-half-width'>
-          <InputField ref={phoneRef} name='Nº Teléfono' placeholder='Ej: +34 612 34 56 78'/>
-          <InputField ref={emailRef} name='Email' placeholder='Ej: user@mail.com'/>
+    <form className='add-student-form'>
+      <div className='add-student-fields'>
+        <div className='add-student-form-inputs inputs-1'>
+          <InputField ref={fullnameRef} name='Nombre y Apellidos' placeholder='Ej: Juan Pérez Lorca'/>
+          
+          <div className='add-student-half-width'>
+            <InputField ref={phoneRef} name='Nº Teléfono' placeholder='Ej: +34 612 34 56 78'/>
+            <InputField ref={emailRef} name='Email' placeholder='Ej: user@mail.com'/>
+          </div>
+          
+          <div className='add-student-half-width'>  
+            <InputSelect name='País' options={countryList}/>
+            <InputSelect name='Ciudad' options={cityList[0]}/>
+          </div>
+          
+          <div className='add-student-half-width'>   
+            <InputRadio name='Traslado' options={move}/>
+            <InputRadio name='Presencialidad' options={modalities}/>        
+          </div>
+        </div>
+
+        <div className='add-student-form-inputs inputs-2'>
+          <UploadFile name='Foto de Perfil' title='Subir imagen' 
+          supported='.png, .jpg, y .jpeg' 
+          accepted='.png, .jpg, .jpeg'
+          fileSize='2 MB'
+          update={updatePhotoUrl}
+          fileType='photo'
+          upload />
+
+          <UploadFile name='Documento CV' title='Subir documento PDF' 
+          supported='.pdf' 
+          accepted='.pdf' 
+          fileSize='20 MB' 
+          update={updateResumeUrl}
+          fileType='resumee'
+          upload />
+
+          <InputTags selectedTags={tagsState} addTag={addTag} removeTag={removeTag}/>
         </div>
         
-        <div className='add-student-half-width'>  
-          <InputSelect name='País' options={countryList}/>
-          <InputSelect name='Ciudad' options={cityList[0]}/>
-        </div>
-        
-        <div className='add-student-half-width'>   
-          <InputRadio name='Traslado' options={move}/>
-          <InputRadio name='Presencialidad' options={modalities}/>        
-        </div>
       </div>
-
-      <div className='add-student-form-inputs inputs-2'>
-        <UploadFile name='Foto de Perfil' title='Subir imagen' 
-        supported='.png, .jpg, y .jpeg' 
-        accepted='.png, .jpg, .jpeg'
-        fileSize='2 MB'
-        update={updatePhotoUrl}
-        fileType='photo'
-        upload />
-
-        <UploadFile name='Documento CV' title='Subir documento PDF' 
-        supported='.pdf' 
-        accepted='.pdf' 
-        fileSize='20 MB' 
-        update={updateResumeUrl}
-        fileType='resumee'
-        upload />
-
-        <InputTags selectedTags={tagsState} addTag={addTag} removeTag={removeTag}/>
+      <div className='add-student-buttons'>
+        {/* <RoundedButton title='Guardar' disable/> */}
+        <button className={'rounded-button'} type='submit' disabled onClick={}>
+        {Guardar}
+      </button>
+        <RoundedButton title='Cancelar' onClick={closeModal}/>
       </div>
-      
-    </div>
+    </form>
   );
 }
 

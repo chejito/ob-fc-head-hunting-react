@@ -22,12 +22,14 @@
   vertical-align: middle;
   padding-bottom: 2px;
   margin-left: 24px;
+  cursor: pointer;
 }
 
 .before-icon {
   vertical-align: middle;
   padding-bottom: 2px;
   margin-right: 24px;
+  cursor: pointer;
 }
 
 

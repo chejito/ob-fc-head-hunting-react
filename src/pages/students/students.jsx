@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import StudentsHeader from '../../components/container/studentsHeader/studentsHeader';
 import StudentsMain from '../../components/container/studentsMain/studentsMain';
 import { getAllPagedStudents } from '../../services/StudentsService';
-import { getCountriesTags } from '../../services/InitService';
 import StudentProfile from '../studentProfile/studentProfile';
 import './students.css'
 import AddStudent from '../addStudent/addStudent';
@@ -37,11 +36,11 @@ const Students = ({userState, updateUser, studentsState, updateStudents}) => {
       .then((response) => {
         updateStudents(
           {
-            studentList: response.students,
-            totalStudents: response.totalItems,
-            studentsPerPage: response.studentsPerPage,
-            totalPages: response.totalPages,
-            page: response.currentPage,
+            studentList: response.data.students,
+            totalStudents: response.data.totalItems,
+            studentsPerPage: response.data.studentsPerPage,
+            totalPages: response.data.totalPages,
+            page: response.data.currentPage,
             selectedStudent: null
           }
         )
@@ -64,7 +63,7 @@ const Students = ({userState, updateUser, studentsState, updateStudents}) => {
       :
       modalIsOpen ? 
         (
-          <AddStudent closeModal={closeModal}/>
+          <AddStudent closeModal={closeModal} userState={userState}/>
         )
         :        
         (<div>
