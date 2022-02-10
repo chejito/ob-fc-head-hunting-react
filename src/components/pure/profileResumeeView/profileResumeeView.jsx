@@ -1,10 +1,10 @@
 import React from 'react';
 import './profileResumeeView.css'
 
-const ProfileResumeeView = ({resumeUrl}) => {
+const ProfileResumeeView = ({resumeeUrl}) => {
   
   return (
-    <iframe src={resumeUrl} frameBorder='0' title='pdf-viewer' className='pdf-viewer'></iframe>
+    <iframe src={resumeeUrl} frameBorder='0' title='pdf-viewer' className='pdf-viewer'></iframe>
   );
 }
 

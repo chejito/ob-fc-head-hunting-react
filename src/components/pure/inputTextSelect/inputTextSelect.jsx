@@ -25,7 +25,7 @@ const InputTextSelect = React.forwardRef(({options, name, placeholder, addTag}, 
         onClick={onSelect}/>      
       <datalist id='options'>
         {options.map((option, index) => (
-          <option value={option.toLowerCase()} key={index}>{option}</option>
+          <option value={option} key={index}>{option}</option>
         ))}
       </datalist>
     </div>

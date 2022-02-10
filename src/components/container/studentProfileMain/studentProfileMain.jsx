@@ -10,7 +10,7 @@ const StudentProfileMain = ({studentsState, utils}) => {
         student={studentsState.selectedStudent}
         utils={utils} 
         />
-      <ProfileResumeeView resumeUrl={studentsState.selectedStudent.resumeUrl} />
+      <ProfileResumeeView resumeeUrl={studentsState.selectedStudent.resumeeUrl} />
     </main>
   );
 }

@@ -9,6 +9,7 @@ export const login = (email, password) => {
     }
 
     return axios.post('https://ob-fc-headhunt.herokuapp.com/api/auth/login', body)
+    // return axios.post('http://localhost:8080/api/auth/login', body)
 }
 
 export const register = async (username, email, password, fullname) => {  

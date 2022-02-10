@@ -1,6 +1,7 @@
 import React, {useRef, useState} from 'react';
 import InputField from '../../pure/inputField/inputField';
 import './addStudentMain.css'
+import './addStudentForm.css'
 import { countries } from '../../../data/countries';
 import InputSelect from '../../pure/inputSelect/inputSelect';
 import InputRadio from '../../pure/inputRadio/inputRadio';
@@ -47,6 +48,10 @@ const AddStudentMain = ({closeModal, userState}) => {
     setButtonDisabled(false)
   }
 
+  const lockSaveButton = () => {
+    setButtonDisabled(true)
+  }
+
   const addTag = (newTag) => {
     let newTags = [...tagsState]
     if (!tagsState.includes(newTag)) {
@@ -78,18 +83,19 @@ const AddStudentMain = ({closeModal, userState}) => {
       tags: tagsState
     }
 
-    console.log(student)
 
     createStudent(student, token)
       .then((response) => {
-        alert(`Succes creating Student: ${response.data.message}`)
+        alert(`${response.data.message}`)
       })
       .catch((error) => {
         alert(`Error while retrieving the students: ${error}`)
         console.log(error)
       })
 
-    alert(`New Student: ${student.fullname}`)
+    lockSaveButton()
+    closeModal()    
+
   }
 
   const checkValidity = (e) => {

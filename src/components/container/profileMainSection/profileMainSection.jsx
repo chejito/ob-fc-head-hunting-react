@@ -9,6 +9,8 @@ import { countries } from '../../../data/countries';
 
 const ProfileMainSection = ({student}) => {
 
+  console.log(student)
+
   const fullnameRef = useRef('')
   const phoneRef = useRef('')
   const emailRef = useRef('')
@@ -83,7 +85,7 @@ const ProfileMainSection = ({student}) => {
           <InputRadio ref={modalityRef} name='Presencialidad' options={modalities} value={student.modality ? 'Presencial' : 'En remoto'}/>
         
         </div>
-        <ResumeeField resumeUrl={student.resumeUrl}/>
+        <ResumeeField resumeUrl={student.resumeeUrl}/>
         
         <InputTags selectedTags={tagsState} addTag={addTag} removeTag={removeTag}/>
       </div>
