@@ -3,7 +3,7 @@ import './studentProfile.css'
 import StudentProfileHeader from '../../components/container/studentProfileHeader/studentProfileHeader';
 import StudentProfileMain from '../../components/container/studentProfileMain/studentProfileMain';
 
-const StudentProfile = ({userState, updateUser, studentsState, updateStudents, utils}) => {
+const StudentProfile = ({userState, updateUser, studentsState, updateStudents}) => {
   return (
     <div className='student-profile-container'>
       <StudentProfileHeader 
@@ -14,7 +14,7 @@ const StudentProfile = ({userState, updateUser, studentsState, updateStudents, u
       <StudentProfileMain 
         studentsState={studentsState} 
         updateStudents={updateStudents}
-        utils={utils} />
+        />
     </div>
   );
 }

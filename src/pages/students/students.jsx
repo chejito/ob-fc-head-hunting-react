@@ -8,13 +8,6 @@ import AddStudent from '../addStudent/addStudent';
 
 const Students = ({userState, updateUser, studentsState, updateStudents}) => {  
   
-  const initialState = {
-    countries: [], 
-    tags: []
-  }
-
-  const [utils, setUtils] = useState(initialState);
-
   const [modalIsOpen, setModalIsOpen] = useState(false)
 
   const openModal = () => {
@@ -27,6 +20,7 @@ const Students = ({userState, updateUser, studentsState, updateStudents}) => {
 
   useEffect(() => {
     obtainStudents()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const obtainStudents = (page=1) => {
@@ -59,7 +53,7 @@ const Students = ({userState, updateUser, studentsState, updateStudents}) => {
         updateUser={updateUser} 
         studentsState={studentsState} 
         updateStudents={updateStudents}
-        utils={utils}/>)
+        />)
       :
       modalIsOpen ? 
         (

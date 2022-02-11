@@ -1,4 +1,4 @@
-import React, { useRef, useContext, useState } from 'react';
+import React, { useRef } from 'react';
 import CompanyName from '../companyName/companyName';
 import InputField from '../inputField/inputField';
 import RememberPassword from '../rememberPassword/rememberPassword';

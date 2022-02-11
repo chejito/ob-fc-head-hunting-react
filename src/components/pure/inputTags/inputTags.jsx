@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './inputTags.css'
 import { tags } from '../../../data/tags'
 import InputTextSelect from '../inputTextSelect/inputTextSelect';
-import InputSelect from '../inputSelect/inputSelect';
 
 const InputTags = ({selectedTags, addTag, removeTag}) => {
  

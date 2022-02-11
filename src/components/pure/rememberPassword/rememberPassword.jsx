@@ -8,9 +8,9 @@ const RememberPassword = () => {
         <input type='checkbox' className='remember-input' name='remember'/>
         <label htmlFor='remember' className='remember-input-label'>Recuérdame</label>
       </div>      
-      <a href='#' className='password-resend-link'>
+      <p className='password-resend-link'>
         He olvidado la contraseña
-      </a>      
+      </p>      
     </div>
   );
 }

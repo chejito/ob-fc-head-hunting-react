@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import InputField from '../../pure/inputField/inputField';
 import InputSelect from '../../pure/inputSelect/inputSelect';
 import InputTags from '../../pure/inputTags/inputTags';
 import './studentsAsideForm.css'
